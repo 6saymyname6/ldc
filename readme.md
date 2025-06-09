@@ -1,6 +1,6 @@
 ## Logits DeConfusion with CLIP for Few-Shot Learning
 
-The code of "Logits DeConfusion with CLIP for Few-Shot Learning" (CVPR 2025), [paper from arxiv: https://arxiv.org/abs/2504.12104](https://arxiv.org/abs/2504.12104)
+The code of "Logits DeConfusion with CLIP for Few-Shot Learning" (CVPR 2025), paper from [arxiv](https://arxiv.org/abs/2504.12104) or [thecvf](https://openaccess.thecvf.com/content/CVPR2025/papers/Li_Logits_DeConfusion_with_CLIP_for_Few-Shot_Learning_CVPR_2025_paper.pdf).
 
 
 ### Abstract
@@ -96,9 +96,20 @@ python ldc_vis_figure5.py
 ![Figure5](./result/vis/Figure5.png)
 
 
+### BiBTex
+
+```
+@InProceedings{Li_2025_CVPR,
+    author    = {Li, Shuo and Liu, Fang and Hao, Zehua and Wang, Xinyi and Li, Lingling and Liu, Xu and Chen, Puhua and Ma, Wenping},
+    title     = {Logits DeConfusion with CLIP for Few-Shot Learning},
+    booktitle = {Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR)},
+    month     = {June},
+    year      = {2025},
+    pages     = {25411-25421}
+}
+```
+
 
 ## Acknowledgement
 
 This repo benefits from [FAR](https://github.com/WideStars/FAR), [Tip](https://github.com/gaopengcuhk/Tip-Adapter), [CoOp](https://github.com/KaiyangZhou/CoOp), and [CLIP](https://github.com/openai/CLIP). Thanks for their works.
-
-
