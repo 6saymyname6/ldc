@@ -1,0 +1,70 @@
+{'name': 'fgvc', 'acc': [{'clip_logits': 17.191719171917192, 'mlp_logits': 8.13081308130813, 'ada_logits': 18.871887188718873, 'tot_logits': 18.69186918691869, 'acc': 19.141914191419144}], 'detail': 'dataset_name=fgvc, shots=1, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=RN50, num_classes=100, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+{'name': 'stanford_cars', 'acc': [{'clip_logits': 55.68959084690959, 'mlp_logits': 4.215893545578908, 'ada_logits': 57.56746673299341, 'tot_logits': 57.045143638850895, 'acc': 57.38092277079965}], 'detail': 'dataset_name=stanford_cars, shots=1, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=RN50, num_classes=196, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+avg clip_logits acc=36.44065500941339
+avg mlp_logits acc=6.173353313443519
+avg ada_logits acc=38.21967696085614
+avg tot_logits acc=37.86850641288479
+avg acc acc=38.261418481109395
+{'name': 'fgvc', 'acc': [{'clip_logits': 17.191719171917192, 'mlp_logits': 11.761176117611761, 'ada_logits': 21.66216621662166, 'tot_logits': 21.81218121812181, 'acc': 22.202220222022202}], 'detail': 'dataset_name=fgvc, shots=2, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=RN50, num_classes=100, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+{'name': 'stanford_cars', 'acc': [{'clip_logits': 55.68959084690959, 'mlp_logits': 12.560626787712973, 'ada_logits': 59.930356920781, 'tot_logits': 59.905484392488496, 'acc': 59.930356920781}], 'detail': 'dataset_name=stanford_cars, shots=2, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=RN50, num_classes=196, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+avg clip_logits acc=36.44065500941339
+avg mlp_logits acc=12.160901452662367
+avg ada_logits acc=40.79626156870133
+avg tot_logits acc=40.858832805305155
+avg acc acc=41.0662885714016
+{'name': 'fgvc', 'acc': [{'clip_logits': 17.191719171917192, 'mlp_logits': 15.661566156615661, 'ada_logits': 26.192619261926193, 'tot_logits': 26.192619261926193, 'acc': 27.002700270027002}], 'detail': 'dataset_name=fgvc, shots=4, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=RN50, num_classes=100, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+{'name': 'stanford_cars', 'acc': [{'clip_logits': 55.68959084690959, 'mlp_logits': 31.73734610123119, 'ada_logits': 64.80537246611118, 'tot_logits': 65.01678895659744, 'acc': 65.61372963561746}], 'detail': 'dataset_name=stanford_cars, shots=4, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=RN50, num_classes=196, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+avg clip_logits acc=36.44065500941339
+avg mlp_logits acc=23.699456128923426
+avg ada_logits acc=45.49899586401869
+avg tot_logits acc=45.60470410926182
+avg acc acc=46.30821495282223
+{'name': 'fgvc', 'acc': [{'clip_logits': 17.191719171917192, 'mlp_logits': 28.082808280828083, 'ada_logits': 36.693669366936696, 'tot_logits': 39.48394839483949, 'acc': 40.084008400840084}], 'detail': 'dataset_name=fgvc, shots=8, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=RN50, num_classes=100, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+{'name': 'stanford_cars', 'acc': [{'clip_logits': 55.68959084690959, 'mlp_logits': 62.541972391493594, 'ada_logits': 72.97599801019774, 'tot_logits': 73.49832110434026, 'acc': 74.21962442482278}], 'detail': 'dataset_name=stanford_cars, shots=8, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=RN50, num_classes=196, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+avg clip_logits acc=36.44065500941339
+avg mlp_logits acc=45.31239033616084
+avg ada_logits acc=54.834833688567215
+avg tot_logits acc=56.491134749589875
+avg acc acc=57.15181641283144
+{'name': 'fgvc', 'acc': [{'clip_logits': 17.191719171917192, 'mlp_logits': 47.73477347734774, 'ada_logits': 50.04500450045004, 'tot_logits': 51.63516351635163, 'acc': 52.62526252625263}], 'detail': 'dataset_name=fgvc, shots=16, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=RN50, num_classes=100, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+{'name': 'stanford_cars', 'acc': [{'clip_logits': 55.68959084690959, 'mlp_logits': 78.87078721552045, 'ada_logits': 79.61696306429549, 'tot_logits': 80.18903121502301, 'acc': 81.25854993160054}], 'detail': 'dataset_name=stanford_cars, shots=16, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=RN50, num_classes=196, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+avg clip_logits acc=36.44065500941339
+avg mlp_logits acc=63.30278034643409
+avg ada_logits acc=64.83098378237277
+avg tot_logits acc=65.91209736568732
+avg acc acc=66.94190622892658
+{'name': 'fgvc', 'acc': [{'clip_logits': 24.81248124812481, 'mlp_logits': 7.230723072307231, 'ada_logits': 27.662766276627664, 'tot_logits': 24.332433243324335, 'acc': 27.662766276627664}], 'detail': 'dataset_name=fgvc, shots=1, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=ViT-B/16, num_classes=100, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+{'name': 'stanford_cars', 'acc': [{'clip_logits': 65.34013182439995, 'mlp_logits': 5.670936450690213, 'ada_logits': 68.0885462007213, 'tot_logits': 67.97661982340504, 'acc': 68.05123740828255}], 'detail': 'dataset_name=stanford_cars, shots=1, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=ViT-B/16, num_classes=196, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+avg clip_logits acc=45.07630653626238
+avg mlp_logits acc=6.4508297614987224
+avg ada_logits acc=47.87565623867448
+avg tot_logits acc=46.15452653336469
+avg acc acc=47.857001842455105
+{'name': 'fgvc', 'acc': [{'clip_logits': 24.81248124812481, 'mlp_logits': 8.52085208520852, 'ada_logits': 29.072907290729074, 'tot_logits': 28.172817281728175, 'acc': 28.83288328832883}], 'detail': 'dataset_name=fgvc, shots=2, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=ViT-B/16, num_classes=100, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+{'name': 'stanford_cars', 'acc': [{'clip_logits': 65.34013182439995, 'mlp_logits': 12.709861957467977, 'ada_logits': 70.87426936948141, 'tot_logits': 69.91667703022011, 'acc': 70.96132321850516}], 'detail': 'dataset_name=stanford_cars, shots=2, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=ViT-B/16, num_classes=196, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+avg clip_logits acc=45.07630653626238
+avg mlp_logits acc=10.615357021338248
+avg ada_logits acc=49.973588330105244
+avg tot_logits acc=49.04474715597414
+avg acc acc=49.897103253416994
+{'name': 'fgvc', 'acc': [{'clip_logits': 24.81248124812481, 'mlp_logits': 13.771377137713772, 'ada_logits': 32.10321032103211, 'tot_logits': 30.243024302430243, 'acc': 32.04320432043205}], 'detail': 'dataset_name=fgvc, shots=4, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=ViT-B/16, num_classes=100, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+{'name': 'stanford_cars', 'acc': [{'clip_logits': 65.34013182439995, 'mlp_logits': 51.162790697674424, 'ada_logits': 74.43104091530904, 'tot_logits': 73.74704638726527, 'acc': 75.06529038676781}], 'detail': 'dataset_name=stanford_cars, shots=4, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=ViT-B/16, num_classes=196, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+avg clip_logits acc=45.07630653626238
+avg mlp_logits acc=32.4670839176941
+avg ada_logits acc=53.267125618170574
+avg tot_logits acc=51.99503534484776
+avg acc acc=53.55424735359993
+{'name': 'fgvc', 'acc': [{'clip_logits': 24.81248124812481, 'mlp_logits': 25.862586258625864, 'ada_logits': 36.543654365436545, 'tot_logits': 36.42364236423642, 'acc': 37.89378937893789}], 'detail': 'dataset_name=fgvc, shots=8, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=ViT-B/16, num_classes=100, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+{'name': 'stanford_cars', 'acc': [{'clip_logits': 65.34013182439995, 'mlp_logits': 71.28466608630767, 'ada_logits': 78.69667951747296, 'tot_logits': 79.25631140405423, 'acc': 79.77863449819674}], 'detail': 'dataset_name=stanford_cars, shots=8, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=ViT-B/16, num_classes=196, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+avg clip_logits acc=45.07630653626238
+avg mlp_logits acc=48.57362617246677
+avg ada_logits acc=57.620166941454755
+avg tot_logits acc=57.83997688414533
+avg acc acc=58.83621193856732
+{'name': 'fgvc', 'acc': [{'clip_logits': 24.81248124812481, 'mlp_logits': 44.37443744374438, 'ada_logits': 45.994599459945995, 'tot_logits': 47.46474647464746, 'acc': 48.03480348034804}], 'detail': 'dataset_name=fgvc, shots=16, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=ViT-B/16, num_classes=100, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+{'name': 'stanford_cars', 'acc': [{'clip_logits': 65.34013182439995, 'mlp_logits': 81.1217510259918, 'ada_logits': 83.45976868548688, 'tot_logits': 83.70849396841189, 'acc': 84.26812585499316}], 'detail': 'dataset_name=stanford_cars, shots=16, lr=0.001, seed=2024, train_epoch=50, batch_size=64, backbone=ViT-B/16, num_classes=196, loss_lambda=[1.0, 1.0, 1.0, 1.0, 1.0], fuse_type=2'}
+avg clip_logits acc=45.07630653626238
+avg mlp_logits acc=62.74809423486809
+avg ada_logits acc=64.72718407271644
+avg tot_logits acc=65.58662022152967
+avg acc acc=66.1514646676706
