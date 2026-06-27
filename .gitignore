@@ -1,0 +1,18 @@
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Local tooling and editor state
+.claude/
+.tmp/
+.vscode/
+
+# Downloaded datasets (keep loaders and repository metadata)
+datasets/*
+!datasets/*.py
+!datasets/*.md
+!datasets/jsons/
+!datasets/jsons/**
+
+# Generated experiment logs
+result/log/*.txt

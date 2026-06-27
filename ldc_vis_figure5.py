@@ -22,7 +22,11 @@ class ReadResult(object):
 
         # 解析结果
         for one in self.result:
-            now_result = " ".join(one.split(" ")[2:]).replace("'", "\"")
+            parts = one.split(" ")
+            if parts[0][0].isdigit():  # has timestamp prefix like "2025-03-16 18:00:13"
+                now_result = " ".join(parts[2:]).replace("'", "\"")
+            else:
+                now_result = one.replace("'", "\"")
             json_result = json.loads(now_result)
             if "imagenet" in one:
                 results.append({})

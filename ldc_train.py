@@ -14,7 +14,8 @@ from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor, Normal
 
 
 MODEL_CACHE_DIR = './model/clip'
-DATA_ROOT = './your/data/path'
+MODEL_SAVE_DIR = './model/saved'
+DATA_ROOT = './datasets'
 LOG_ROOT = './result/log'
 
 
@@ -325,20 +326,20 @@ class Runner(object):
         if self.config.dataset_name != "imagenet":
             self.train_loader = DataLoader(
                 DatasetWrapper(self.config.dataset.train_x, input_size=224, transform=MyTransform.transform_train(224), is_train=True),
-                batch_size=self.config.batch_size, num_workers=8, shuffle=True, drop_last=False, pin_memory=(torch.cuda.is_available()))
+                batch_size=self.config.batch_size, num_workers=0, shuffle=True, drop_last=False, pin_memory=(torch.cuda.is_available()))
             self.val_loader = DataLoader(
                 DatasetWrapper(self.config.dataset.val, input_size=224, transform=self.preprocess, is_train=False),
-                batch_size=64, num_workers=8, shuffle=False, drop_last=False, pin_memory=(torch.cuda.is_available()))
+                batch_size=self.config.batch_size, num_workers=0, shuffle=False, drop_last=False, pin_memory=(torch.cuda.is_available()))
             self.test_loader = DataLoader(
                 DatasetWrapper(self.config.dataset.test, input_size=224, transform=self.preprocess, is_train=False),
-                batch_size=64, num_workers=8, shuffle=False, drop_last=False, pin_memory=(torch.cuda.is_available()))
+                batch_size=self.config.batch_size, num_workers=0, shuffle=False, drop_last=False, pin_memory=(torch.cuda.is_available()))
             self.test_loader_list = [self.test_loader]
         else:
-            self.train_loader = DataLoader(self.config.dataset, self.config.batch_size, num_workers=8, shuffle=True)
+            self.train_loader = DataLoader(self.config.dataset, self.config.batch_size, num_workers=0, shuffle=True)
             self.val_loader = None
-            self.test_loader = DataLoader(dataset=self.config.test_set, batch_size=self.config.batch_size, num_workers=8, shuffle=False)
-            self.test_loader_v2 = DataLoader(dataset=self.config.test_set_v2, batch_size=self.config.batch_size, num_workers=8, shuffle=False)
-            self.test_loader_sketch = DataLoader(dataset=self.config.test_set_sketch, batch_size=self.config.batch_size, num_workers=8, shuffle=False)
+            self.test_loader = DataLoader(dataset=self.config.test_set, batch_size=self.config.batch_size, num_workers=0, shuffle=False)
+            self.test_loader_v2 = DataLoader(dataset=self.config.test_set_v2, batch_size=self.config.batch_size, num_workers=0, shuffle=False)
+            self.test_loader_sketch = DataLoader(dataset=self.config.test_set_sketch, batch_size=self.config.batch_size, num_workers=0, shuffle=False)
             self.test_loader_list = [self.test_loader, self.test_loader_v2, self.test_loader_sketch] if self.config.has_ood else [self.test_loader]
             pass
 
@@ -388,6 +389,15 @@ class Runner(object):
             Tools.print(f"Epoch: {epoch}, loss: {loss:.4f}, "
                         f"lr: {self.optimizer.state_dict()['param_groups'][0]['lr']:.8f}")
             pass
+
+        # 保存训练好的adapter参数
+        adapt_state = {k: v for k, v in self.clip_model.state_dict().items() if 'adapter' in k}
+        save_dir = os.path.join(MODEL_SAVE_DIR, self.config.dataset_name, self.config.backbone)
+        save_path = os.path.join(save_dir, f"shots_{self.config.shots}.pt")
+        os.makedirs(save_dir, exist_ok=True)
+        torch.save(adapt_state, save_path)
+        Tools.print(f"Saved adapter weights to {save_path}")
+
         return self.test()
 
     def test(self):
@@ -454,11 +464,13 @@ class AllExperiments(object):
 
     def __init__(self):
         self.seed = 2024
-        self.datasets = "imagenet/fgvc/caltech101/stanford_cars/dtd/eurosat/oxford_flowers/food101/oxford_pets/sun397/ucf101"
+        #self.datasets = "imagenet/fgvc/caltech101/stanford_cars/dtd/eurosat/oxford_flowers/food101/oxford_pets/sun397/ucf101"
+        self.datasets = "fgvc/stanford_cars"
         pass
 
     def main_experiment_1_zero_shot(self):
-        log_txt_path = Tools.new_dir(os.path.join(LOG_ROOT, "1_main_experiment_1_zero_shot.txt"))
+        #log_txt_path = Tools.new_dir(os.path.join(LOG_ROOT, "1_main_experiment_1_zero_shot.txt"))
+        log_txt_path = Tools.new_dir(os.path.join(LOG_ROOT, "2datasets_zero_shot.txt"))
         backbone_list = ["RN50", "ViT-B/16"]
         for backbone in backbone_list:
             self.experiment_one(backbone=backbone, train_epoch=0, has_ood=False, log_txt_path=log_txt_path)
@@ -466,7 +478,8 @@ class AllExperiments(object):
         pass
 
     def main_experiment_2_few_shot(self):
-        log_txt_path = Tools.new_dir(os.path.join(LOG_ROOT, "1_main_experiment_2_few_shot.txt"))
+        #log_txt_path = Tools.new_dir(os.path.join(LOG_ROOT, "1_main_experiment_2_few_shot.txt"))
+        log_txt_path = Tools.new_dir(os.path.join(LOG_ROOT, "2datasets_few_shot.txt"))
         backbone_list = ["RN50", "ViT-B/16"]
         shots_list = [1, 2, 4, 8, 16]
         for backbone in backbone_list:
@@ -496,17 +509,24 @@ class AllExperiments(object):
             pass
 
         # 计算平均结果
+        # acc_keys = ["clip_logits", "mlp_logits", "ada_logits", "tot_logits", "acc"]
+        # for key in acc_keys:
+        #     avg_acc, count = 0, 0
+        #     avg_acc += results[0]['acc'][0][key]  # ImageNet
+        #     count += 1
+        #     for result in results[1:]:
+        #         avg_acc += sum([one[key] for one in result['acc']])
+        #         count += len([one[key] for one in result['acc']])
+        #         pass
+        #     Tools.print(f"avg {key} acc={avg_acc / count}", log_txt_path)
+        #     pass
         acc_keys = ["clip_logits", "mlp_logits", "ada_logits", "tot_logits", "acc"]
         for key in acc_keys:
             avg_acc, count = 0, 0
-            avg_acc += results[0]['acc'][0][key]  # ImageNet
-            count += 1
-            for result in results[1:]:
+            for result in results:
                 avg_acc += sum([one[key] for one in result['acc']])
                 count += len([one[key] for one in result['acc']])
-                pass
             Tools.print(f"avg {key} acc={avg_acc / count}", log_txt_path)
-            pass
         pass
 
     pass
@@ -516,4 +536,3 @@ if __name__ == '__main__':
     all_experiment = AllExperiments()
     all_experiment.main_experiment_1_zero_shot()
     all_experiment.main_experiment_2_few_shot()
-    pass
